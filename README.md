@@ -33,12 +33,14 @@ Before implementing this setup, ensure the following components are available:
 **Note:** The CPU alert threshold is set to 5% for demonstration purposes to make alert triggering easier during testing.
 
 
+
 ## Configuration Files
 
-| File | Description |
+| File Path | Description |
 |---|---|
-| `cpu-alert.yml` | Defines the HighCPUUsage alert using PrometheusRule |
-| `alertmanager-email.yml` | Configures email notifications using AlertmanagerConfig |
+| `alerting/cpu-alert.yml` | Defines the `HighCPUUsage` alert using PrometheusRule. |
+| `alerting/alertmanager-email.yml` | Configures email notifications using AlertmanagerConfig and Gmail SMTP. |
+
 
 ## Alert Configuration
 

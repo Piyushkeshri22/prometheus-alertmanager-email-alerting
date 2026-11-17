@@ -17,7 +17,7 @@ spec:
             rate(node_cpu_seconds_total{mode="idle"}[5m])
             ) * 100
             ) > 5
-          for: 
+          for: 1m
           labels:
             severity: warning
             namespace: monitoring

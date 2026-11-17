@@ -76,11 +76,13 @@ CPU Metrics
 
 Shows the HighCPUUsage alert in the firing state.
 
+
 ![Prometheus Alert](screenshots/01-prometheus-alert-firing.png)
 
 ### 2. Alertmanager
 
 Shows the alert received and grouped by Alertmanager.
+
 
 ![Alertmanager](screenshots/02-alertmanager-received-alert.png)
 
@@ -88,12 +90,14 @@ Shows the alert received and grouped by Alertmanager.
 
 Demonstrates the email notification received when the CPU alert fires.
 
+
 ![Firing Email](screenshots/03-email-alert-firing.png)
 
 
 ### 4. Resolved Email Notification
 
 Demonstrates the recovery notification received after the alert condition clears.
+
 
 ![Resolved Email](screenshots/04-email-alert-resolved.png)
 

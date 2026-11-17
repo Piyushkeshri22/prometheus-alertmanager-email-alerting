@@ -42,6 +42,64 @@ Before implementing this setup, ensure the following components are available:
 | `alerting/alertmanager-email.yml` | Configures email notifications using AlertmanagerConfig and Gmail SMTP. |
 
 
+## Deployment & Testing
+
+### 1. Create Gmail SMTP Secret
+
+Create a Kubernetes Secret to store your Gmail App Password securely.
+
+```bash
+kubectl create secret generic gmail-smtp-secret \
+  --from-literal=password='<YOUR_GMAIL_APP_PASSWORD>' \
+  -n monitoring
+```
+
+Verify the Secret:
+
+```bash
+kubectl get secret gmail-smtp-secret -n monitoring
+```
+
+### 2. Apply Prometheus Alert Rule
+
+Deploy the CPU alert rule:
+
+```bash
+kubectl apply -f alerting/cpu-alert.yml
+```
+
+Verify the PrometheusRule:
+
+```bash
+kubectl get prometheusrule -n monitoring
+```
+
+### 3. Apply Alertmanager Email Configuration
+
+Deploy the email notification configuration:
+
+```bash
+kubectl apply -f alerting/alertmanager-email.yml
+```
+
+Verify the AlertmanagerConfig:
+
+```bash
+kubectl get alertmanagerconfig -n monitoring
+```
+
+### 4. Test Email Notifications
+
+- Generate CPU load on a monitored node to trigger the `HighCPUUsage` alert.
+- Verify that the alert enters the firing state in Prometheus.
+- Check Alertmanager to confirm that it receives the alert.
+- Verify that a firing email notification is received.
+- Stop the CPU load and allow the alert condition to clear.
+- Verify that a resolved email notification is received.
+
+**Note:** Ensure Prometheus is configured to discover the PrometheusRule and AlertmanagerConfig resources, and that Node Exporter CPU metrics are available before testing.
+
+
 ## Alert Configuration
 
 - Alert Name: `HighCPUUsage`

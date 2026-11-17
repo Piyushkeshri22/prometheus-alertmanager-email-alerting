@@ -17,6 +17,22 @@ Both firing and resolved email notifications are demonstrated.
 - Gmail SMTP
 - YAML
 
+
+## Prerequisites
+
+Before implementing this setup, ensure the following components are available:
+
+- A running Kubernetes cluster.
+- Prometheus Operator installed in the cluster.
+- Prometheus and Alertmanager deployed and configured.
+- Node Exporter metrics available for CPU monitoring.
+- A Gmail account with 2-Step Verification enabled.
+- A Gmail App Password for SMTP authentication.
+- A Kubernetes Secret named `gmail-smtp-secret` in the `monitoring` namespace, containing the SMTP password under the key `password`.
+
+**Note:** The CPU alert threshold is set to 5% for demonstration purposes to make alert triggering easier during testing.
+
+
 ## Configuration Files
 
 | File | Description |

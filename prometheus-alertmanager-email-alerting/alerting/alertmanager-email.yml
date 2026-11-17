@@ -1,0 +1,32 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+
+metadata:
+  name: email-alert-config
+  namespace: monitoring
+
+spec:
+  route:
+    receiver: email-receiver
+    groupBy:
+      - alertname
+    groupWait: 10s
+    groupInterval: 1m
+    repeatInterval: 1h
+    matchers:
+      - name: alertname
+        matchType: "="
+        value: HighCPUUsage
+
+  receivers:
+    - name: email-receiver
+      emailConfigs:
+        - to: "your-email@gmail.com"
+          from: "your-email@gmail.com"
+          smarthost: "smtp.gmail.com:587"
+          authUsername: "your-email@gmail.com"
+          authPassword:
+            name: gmail-smtp-secret
+            key: password
+          requireTLS: true
+          sendResolved: true

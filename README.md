@@ -73,6 +73,18 @@ CPU Metrics
 ## Screenshots
 
 ### 1. Prometheus Alert Firing
+![Prometheus Alert](screenshots/01-prometheus-alert-firing.png)
+
+### 2. Alertmanager
+![Alertmanager](screenshots/02-alertmanager-received-alert.png)
+
+### 3. Firing Email
+![Firing Email](screenshots/03-email-alert-firing.png)
+
+### 4. Resolved Email
+![Resolved Email](screenshots/04-email-alert-resolved.png)
+
+### 1. Prometheus Alert Firing
 
 Shows the HighCPUUsage alert in the firing state.
 
